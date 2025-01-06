@@ -7,7 +7,7 @@ function App() {
 
   // Fetch all todos
   useEffect(() => {
-    axios.get("http://localhost:4000/todos").then((response) => {
+    axios.get("https://todo-seven-mu-32.vercel.app/todos").then((response) => {
       setTodos(response.data);
     });
   }, []);
@@ -15,7 +15,7 @@ function App() {
   // Add a todo
   const addTodo = () => {
     if (text.trim()) {
-      axios.post("http://localhost:4000/todos", { text }).then((response) => {
+      axios.post("https://my-todo-backend.onrender.com/todos", { text }).then((response) => {
         setTodos([...todos, response.data]);
         setText("");
       });
@@ -24,7 +24,7 @@ function App() {
 
   // Delete a todo
   const deleteTodo = (id) => {
-    axios.delete(`http://localhost:4000/todos/${id}`).then(() => {
+    axios.delete(`https://my-todo-backend.onrender.com/todos/${id}`).then(() => {
       setTodos(todos.filter((todo) => todo._id !== id));
     });
   };
